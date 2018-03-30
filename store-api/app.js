@@ -16,6 +16,9 @@ const router = new Router()
 router.get('/index', async (ctx, next) => {
     await ctx.render('index.html')
 })
+router.get('/about', async (ctx, next) => {
+    await ctx.render('about.html')
+})
 
 app.use(async (ctx, next) => {
     const start = new Date()
