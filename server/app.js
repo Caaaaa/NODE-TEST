@@ -15,8 +15,7 @@ const app = new Koa()
 const router = new Router()
 router.get('/index', async (ctx, next) => {
     await ctx.render('index.html')
-})
-router.get('/about', async (ctx, next) => {
+}).get('/about', async (ctx, next) => {
     await ctx.render('about.html')
 })
 
