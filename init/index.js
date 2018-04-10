@@ -12,14 +12,15 @@ const eventLog = function (err, sqlFile, index) {
 }
 
 // 获取所有sql脚本内容
-let sqlContentMap = getSqlcontentMap()
+let sqlContentMap = getSqlContentMap()
 
 // 执行建表sql脚本
 const creatAllTables = async () => {
     for(let key in sqlContentMap) {
-        let sqlShell = sqlcontentMap[key]
+        console.log(key)
+        let sqlShell = sqlContentMap[key]
         let sqlShellList = sqlShell.split(';')
-        for(let [i, sell] of sqlShellList.entries()) {
+        for(let [i, shell] of sqlShellList.entries()) {
             if (shell.trim()) {
                 let result = await query(shell)
                 if (result.serverStatus * 1 === 2) {
